@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-y:auto ;
+        }
+        body{
+            font-family:monospace;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;  
+            
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        h1{
+            font-size: 4rem;
+            
+            text-align: center;
+            
+        }
+        .num{
+            margin: 5rem;
+            font-size: 5rem;
+            font-weight: bold;
+        }
+        h4{
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+ <section>
+     <h1>My Birthday Eve</h1>
+     <div class="container">
+        <div class="days">
+            <h2 class="num" id="d">00</h2>
+            <h4>days</h4>
+        </div>
+        <div class="hours">
+            <h2 class="num" id="h">00</h2>
+            <h4>hours</h4>
+        </div>
+        <div class="mins">
+            <h2 class="num" id="m">00</h2>
+            <h4>mins</h4>
+        </div>
+        <div class="seconds">
+            <h2 class="num" id="s">00</h2>
+            <h4>seconds</h4>
+        </div>
+    </div>
+
+ </section>
+    <script>
+        let d = document.querySelector('#d');
+        let h = document.querySelector('#h');
+        let m = document.querySelector('#m');
+        let s = document.querySelector('#s');
+        function countdown(){
+            let date = '17 March 2022'
+            let now = Date.now();
+            let c = new Date(date).getTime();
+            let time = c - now;
+            days = Math.floor(time / 1000 / 3600 / 24) % 365;
+            hours = Math.floor(time / 1000 / 3600) % 24;  
+            minutes = Math.floor(time / 1000 / 60) % 60;
+            seconds = Math.floor(time / 1000) % 60;  
+
+            d.innerHTML = formatTime(days)
+            h.innerHTML = formatTime(hours)
+            m.innerHTML = formatTime(minutes)
+            s.innerHTML = formatTime(seconds)
+            function formatTime(time){
+               return time < 10 ? `0${time}` : time
+            }
+        }
+        setInterval(countdown,1000);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+// function countdown(){
+//     const myBirtDate = '31 Dec 2021'
+//     let newDate = new Date(myBirtDate);
+//     let currentDate = new Date();
+//     let totalSec =(newDate - currentDate) / 1000;
+//     let days = Math.floor(totalSec / 3600 / 24); 
+//     let hours = Math.floor((totalSec / 3600) % 24);
+//     let mins = Math.floor((totalSec / 60) % 60);
+//     let seconds = Math.floor((totalSec % 60))
+//    // console.log(days,hours,mins,seconds);
+
+// document.getElementById('d').innerHTML = days;
+// document.getElementById('h').innerHTML = formatTime(hours);
+// document.getElementById('m').innerHTML =  formatTime(mins);
+// document.getElementById('s').innerHTML =  formatTime(seconds);
+
+// function formatTime(time){
+//    return  time < 10 ? `0${time}` : time;
+// }
+// }
+
+// setInterval(countdown,1000) -->
